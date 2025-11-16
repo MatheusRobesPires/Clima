@@ -15,7 +15,7 @@ export default function Form({texto, funcao}) {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'stretch', // ocupa largura disponível, alinhado à esquerda
+    alignSelf: 'stretch', 
     marginBottom: 20,
   },
   label: {

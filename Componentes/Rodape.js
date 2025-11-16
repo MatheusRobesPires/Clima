@@ -18,14 +18,14 @@ export default function Rodape({img1, img2}) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row', // coloca os ícones lado a lado
-    justifyContent: 'space-around', // espaço igual entre botões
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
     alignItems: 'center',
     paddingVertical: 10,
-    backgroundColor: 'white', // azul barra inferior
+    backgroundColor: 'white', 
     borderTopWidth: 5,
     borderTopColor:  '#1976d2',
-    // fixa no rodapé
+    
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
   },
   icone: {
     width: 40,
-    height: 40, // deixa o ícone branco (se for PNG com transparência)
+    height: 40, 
   },
 })

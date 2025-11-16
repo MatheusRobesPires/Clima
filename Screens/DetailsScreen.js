@@ -6,7 +6,7 @@ export default function DetailsScreen({ route }) {
   const city = route?.params?.city;
   const isDarkMode = route?.params?.isDarkMode || false;
   const isCelsius = route?.params?.isCelsius ?? true;
-  const temperature = route?.params?.temperature; // valor já convertido
+  const temperature = route?.params?.temperature; 
 
   if (!weather) {
     return (

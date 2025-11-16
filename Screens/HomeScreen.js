@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isCelsius, setIsCelsius] = useState(true);
 
-  // 🔹 Função para obter o clima via API Open-Meteo
+
   const getWeather = async (latitude, longitude) => {
     try {
       const res = await fetch(
@@ -34,7 +34,7 @@ export default function HomeScreen({ navigation }) {
     }
   };
 
-  // 🔹 Função para obter o nome da cidade via API OpenStreetMap (Nominatim)
+
   const getCityName = async (latitude, longitude) => {
     try {
       const res = await fetch(
@@ -42,7 +42,7 @@ export default function HomeScreen({ navigation }) {
       );
       const data = await res.json();
 
-      // Usa os campos disponíveis de forma inteligente
+
       const address = data.address || {};
       const cityName =
         address.city ||
@@ -60,7 +60,7 @@ export default function HomeScreen({ navigation }) {
     }
   };
 
-  // 🔹 Função principal: pega a localização e carrega o clima
+ 
   const loadWeather = async () => {
     try {
       setLoading(true);
@@ -103,7 +103,7 @@ export default function HomeScreen({ navigation }) {
     loadWeather();
   }, []);
 
-  // 🔹 Mapeia código meteorológico → ícone e descrição
+
   const getWeatherIcon = (code) => {
     if (code === 0) return { name: 'sun', label: 'Céu limpo' };
     if ([1, 2, 3].includes(code)) return { name: 'cloud', label: 'Parcialmente nublado' };
@@ -114,7 +114,7 @@ export default function HomeScreen({ navigation }) {
     return { name: 'cloud', label: 'Clima desconhecido' };
   };
 
-  // 🔹 Estado de carregamento
+
   if (loading) {
     return (
       <View style={[styles.container, isDarkMode && styles.darkContainer]}>
@@ -124,7 +124,7 @@ export default function HomeScreen({ navigation }) {
     );
   }
 
-  // 🔹 Caso não consiga obter o clima
+ 
   if (!weather) {
     return (
       <View style={[styles.container, isDarkMode && styles.darkContainer]}>
@@ -135,7 +135,7 @@ export default function HomeScreen({ navigation }) {
     );
   }
 
-  // 🔹 Exibição principal
+ 
   const { name, label } = getWeatherIcon(weather.weathercode);
   const temperature = isCelsius
     ? weather.temperature
@@ -183,7 +183,7 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
-// 🔹 Estilos
+
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F4F9FF' },
   darkContainer: { backgroundColor: '#1C1C1C' },
